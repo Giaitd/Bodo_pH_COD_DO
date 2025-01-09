@@ -73,7 +73,7 @@ public class SdkCodSensor {
             double codData;
             double tssData;
             //cod
-            byte[] bufferCod = new byte[]{1, 3, 32, 0, 0, 4, 79, -55}; // {01 03 20 00 00 04 4F C9}
+            byte[] bufferCod = new byte[]{1, 3, 0, 2, 0, 4, -27, -55}; // {01 03 00 02 00 04 E5 C9}
             this.usbSerialPort.write(bufferCod, this.WRITE_WAIT_MILLIS);
             byte[] bufferStatusCod = new byte[15];
             this.usbSerialPort.read(bufferStatusCod, this.READ_WAIT_MILLIS);
@@ -100,7 +100,7 @@ public class SdkCodSensor {
 //            if (checkReadCod.equals("010308") && checkReadBod.equals("010304")) {
             if (checkReadCod.equals("010308")) {
                 //đọc Cod
-                String codString = Utils.bytesToHex(new byte[]{bufferStatusCod[10], bufferStatusCod[9], bufferStatusCod[8], bufferStatusCod[7]});
+                String codString = Utils.bytesToHex(new byte[]{bufferStatusCod[5], bufferStatusCod[6], bufferStatusCod[3], bufferStatusCod[4]});
                 String dataReceiveCod = "";
                 for (int i = 0; i < codString.length(); i++) {
                     int k = Integer.parseInt(String.valueOf(codString.charAt(i)), 16);
@@ -260,7 +260,7 @@ public class SdkCodSensor {
     //turn on the brush
     public void turnOnTheBrush() {
         try {
-            byte[] buffer = new byte[]{1, 16, 19, 0, 0, 0, 0, -116, -109}; //{01,10,13,00,00,00,00,8C,93}
+            byte[] buffer = new byte[]{1, 6, 0, 38, 0, 1, -87, -63}; //{01,06,00,26,00,01,A9,C1}
             this.usbSerialPort.write(buffer, this.WRITE_WAIT_MILLIS);
             byte[] bufferStatus = new byte[9];
             this.usbSerialPort.read(bufferStatus, this.READ_WAIT_MILLIS);

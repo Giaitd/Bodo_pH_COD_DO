@@ -145,7 +145,7 @@ class _CalibrationDO2State extends State<CalibrationDO2> {
                           height: 50 / sizeDevice,
                           alignment: Alignment.center,
                           child: Text(
-                            homePageService.do1.value.toString(),
+                            homePageService.do2.value.toString(),
                             style: TextStyle(
                               fontSize: 34 / sizeDevice,
                               color: Colors.black,

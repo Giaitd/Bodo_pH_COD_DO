@@ -183,8 +183,8 @@ class _CalibrationCODState extends State<CalibrationCOD> {
                             enabled: (!homePageService.lockDevice.value),
                             textAlign: TextAlign.center,
                             onChanged: (text) {
-                              if (double.parse(text) < -2.0 ||
-                                  double.parse(text) > 2.0) {
+                              if (double.parse(text) < -500 ||
+                                  double.parse(text) > 500) {
                                 PopupScreen().anounDialog(context);
                               } else {
                                 homePageService.offsetCOD.value =
